@@ -1,11 +1,14 @@
 # angular-d3
 
+This project is a bare bones Angular application that will serve as a starting point for building
+data visualizations using D3.js.
+
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.15.1.
 
 ## Build & development
 
-This project uses Gulp.
+This project uses the Gulp task runner.
 
 Run `gulp build` for building and `gulp serve` for preview.
 
