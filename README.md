@@ -96,66 +96,66 @@ Here are the steps for configuring Karma in your gulpfile.js.
 
 1. Add a reference to the Karma server at the top of your gulpfile.
 
-```javascript
-var karmaServer = require('karma').Server;
-```
+    ```javascript
+    var karmaServer = require('karma').Server;
+    ```
 
 2. Replace your paths definition.
 
-```javascript
-var paths = {
-  scripts: [yeoman.app + '/scripts/**/*.js'],
-  absoluteScripts: [__dirname + '/' + yeoman.app + '/scripts/**/*.js'],
-  styles: [yeoman.app + '/styles/**/*.css'],
-  test: ['test/spec/**/*.js'],
-  absoluteTest: [__dirname + '/test/spec/**/*.js'],
-  testRequire: [
-    'bower_components/angular/angular.js',
-    'bower_components/angular-mocks/angular-mocks.js',
-    'bower_components/angular-resource/angular-resource.js',
-    'bower_components/angular-cookies/angular-cookies.js',
-    'bower_components/angular-sanitize/angular-sanitize.js',
-    'bower_components/angular-route/angular-route.js',
-    'bower_components/angular-animate/angular-animate.js',
-    'bower_components/angular-touch/angular-touch.js',
-    'bower_components/angular-ui-sortable/sortable.js',
-    'bower_components/angular-local-storage/dist/angular-local-storage.js',
-    'test/mock/**/*.js',
-    'test/spec/**/*.js'
-  ],
-  karma: __dirname + '/' + yeoman.test + '/karma.conf.js',
-  views: {
-    main: yeoman.app + '/index.html',
-    bowermain: yeoman.temp + '/index.html',
-    files: [yeoman.app + '/views/**/*.html']
-  }
-};
-```
+    ```javascript
+    var paths = {
+    scripts: [yeoman.app + '/scripts/**/*.js'],
+    absoluteScripts: [__dirname + '/' + yeoman.app + '/scripts/**/*.js'],
+    styles: [yeoman.app + '/styles/**/*.css'],
+    test: ['test/spec/**/*.js'],
+    absoluteTest: [__dirname + '/test/spec/**/*.js'],
+    testRequire: [
+        'bower_components/angular/angular.js',
+        'bower_components/angular-mocks/angular-mocks.js',
+        'bower_components/angular-resource/angular-resource.js',
+        'bower_components/angular-cookies/angular-cookies.js',
+        'bower_components/angular-sanitize/angular-sanitize.js',
+        'bower_components/angular-route/angular-route.js',
+        'bower_components/angular-animate/angular-animate.js',
+        'bower_components/angular-touch/angular-touch.js',
+        'bower_components/angular-ui-sortable/sortable.js',
+        'bower_components/angular-local-storage/dist/angular-local-storage.js',
+        'test/mock/**/*.js',
+        'test/spec/**/*.js'
+    ],
+    karma: __dirname + '/' + yeoman.test + '/karma.conf.js',
+    views: {
+        main: yeoman.app + '/index.html',
+        bowermain: yeoman.temp + '/index.html',
+        files: [yeoman.app + '/views/**/*.html']
+    }
+    };
+    ```
 
 3. Replace your ```test``` task.
 
-```javascript
-/**
- * Run tests once and exit.
- */
-gulp.task('test', function (done) {
-  new karmaServer({
-    files: paths.testRequire.concat(paths.absoluteScripts, paths.absoluteTest),
-    configFile: paths.karma,
-    singleRun: true
-  }, done).start();
-});
+    ```javascript
+    /**
+    * Run tests once and exit.
+    */
+    gulp.task('test', function (done) {
+    new karmaServer({
+        files: paths.testRequire.concat(paths.absoluteScripts, paths.absoluteTest),
+        configFile: paths.karma,
+        singleRun: true
+    }, done).start();
+    });
 
-/**
- * Watch for file changes and re-run tests on each change
- */
-gulp.task('tdd', function (done) {
-  new karmaServer({
-    files: paths.testRequire.concat(paths.absoluteScripts, paths.absoluteTest),
-    configFile: paths.karma
-  }, done).start();
-});
-```
+    /**
+    * Watch for file changes and re-run tests on each change
+    */
+    gulp.task('tdd', function (done) {
+    new karmaServer({
+        files: paths.testRequire.concat(paths.absoluteScripts, paths.absoluteTest),
+        configFile: paths.karma
+    }, done).start();
+    });
+    ```
 
 # Try it out
 
