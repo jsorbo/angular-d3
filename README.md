@@ -25,43 +25,43 @@ Be sure your installations of Node.js and NPM are up to date.
 
 Install Yeoman, Bower, and some other tools with the following command.
 
-```
-npm install -g grunt-cli bower yo generator-karma generator-angular
-```
+    ```
+    npm install -g grunt-cli bower yo generator-karma generator-angular
+    ```
 
 ## Scaffolding
 
 Use Yeoman to scaffold your app.
 
-```
-yo angular [appName]
-```
+    ```
+    yo angular [appName]
+    ```
 
 ## Test runner installation issues
 
 Grunt is the default task runner. However, if you choose Gulp, during the scaffolding process you may
 see a message like this:
 
-```
-npm WARN gulp-karma@0.0.4 requires a peer of karma@>=0.10 <=0.13 but none was installed.
-```
+    ```
+    npm WARN gulp-karma@0.0.4 requires a peer of karma@>=0.10 <=0.13 but none was installed.
+    ```
 
 You can ignore this message, because Gulp plugins are not developed by the Karma team. 
 [Instead, they encourage calling Karma directly from the Gulp task.](https://github.com/karma-runner/gulp-karma#do-we-need-a-plugin)
 
 So, you can remove gulp-karma with the following command:
 
-```
-npm uninstall --save-dev gulp-karma
-```
+    ```
+    npm uninstall --save-dev gulp-karma
+    ```
 
 To run tests you may need to run the following:
 
-```
-npm install karma-phantomjs-launcher --save-dev
-npm install jasmine-core --save-dev
-npm install karma-jasmine --save-dev
-```
+    ```
+    npm install karma-phantomjs-launcher --save-dev
+    npm install jasmine-core --save-dev
+    npm install karma-jasmine --save-dev
+    ```
 
 Further details on Karma configuration are provided below, so read on...
 
@@ -83,12 +83,13 @@ If you chose not to use Sass in the scaffolding options, you will want to comple
     ```
 
 2. Remove the SASS piping block:
-'''javascript
-  .pipe($.sass, {
-    outputStyle: 'expanded',
-    precision: 10
-  })
-'''
+
+    ```javascript
+    .pipe($.sass, {
+        outputStyle: 'expanded',
+        precision: 10
+    })
+    ```
 
 ## Karma configuration
 
@@ -132,7 +133,7 @@ Here are the steps for configuring Karma in your gulpfile.js.
     };
     ```
 
-3. Replace your ```test``` task.
+3. Replace your `test` task.
 
     ```javascript
     /**
