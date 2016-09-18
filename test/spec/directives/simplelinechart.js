@@ -15,6 +15,6 @@ describe('Directive: simpleLineChart', function () {
   it('should make hidden element visible', inject(function ($compile) {
     element = angular.element('<simple-line-chart></simple-line-chart>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the simpleLineChart directive');
+    expect(element.text()).toBe('');
   }));
 });

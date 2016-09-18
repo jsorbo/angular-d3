@@ -21,8 +21,10 @@ var yeoman = {
 // for sources
 var paths = {
   scripts: [yeoman.app + '/scripts/**/*.js'],
+  absoluteScripts: [__dirname + '/' + yeoman.app + '/scripts/**/*.js'],
   styles: [yeoman.app + '/styles/**/*.css'],
   test: ['test/spec/**/*.js'],
+  absoluteTest: [__dirname + '/test/spec/**/*.js'],
   testRequire: [
     'bower_components/angular/angular.js',
     'bower_components/angular-mocks/angular-mocks.js',
@@ -37,7 +39,7 @@ var paths = {
     'test/mock/**/*.js',
     'test/spec/**/*.js'
   ],
-  karma: yeoman.test + '/karma.conf.js',
+  karma: __dirname + '/' + yeoman.test + '/karma.conf.js',
   views: {
     main: yeoman.app + '/index.html',
     bowermain: yeoman.temp + '/index.html',
@@ -145,10 +147,13 @@ gulp.task('serve:prod', function() {
   });
 });
 
+/**
+ * Run tests once and exit.
+ */
 gulp.task('test', function (done) {
   new karmaServer({
-    files: paths.testRequire.concat(__dirname + '/' + paths.scripts, __dirname + '/' + paths.test),
-    configFile: __dirname + '/' + paths.karma,
+    files: paths.testRequire.concat(paths.absoluteScripts, paths.absoluteTest),
+    configFile: paths.karma,
     singleRun: true
   }, done).start();
 });
@@ -158,8 +163,8 @@ gulp.task('test', function (done) {
  */
 gulp.task('tdd', function (done) {
   new karmaServer({
-    files: paths.testRequire.concat(__dirname + '/' + paths.scripts, __dirname + '/' + paths.test),
-    configFile: __dirname + '/' + paths.karma
+    files: paths.testRequire.concat(paths.absoluteScripts, paths.absoluteTest),
+    configFile: paths.karma
   }, done).start();
 });
 
