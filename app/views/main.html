@@ -1,9 +1,37 @@
-<h3>Simple Line Chart</h3>
+<h3>cBioPortal Data Services</h3>
 
 <div class="row">
-  <p>Example from <a href="https://bl.ocks.org/mbostock/3883245">Mike Bostock</a></p>
+  <input ng-click="resetClick()" type="button" class="btn btn-primary" value="Reset" />
+</div>
+<div class="row">
+  <input ng-click="getTypesOfCancerClick()" type="button" class="btn btn-primary" value="Get all types of cancer" />
+</div>
+<div class="row">
+  <input ng-click="getCancerStudiesClick()" type="button" class="btn btn-primary" value="Get all cancer studies" />
+</div>
+<div class="row">
+  <input ng-click="getGeneticProfilesClick()" type="button" class="btn btn-primary" value="Get genetic profiles" />
+</div>
+<div class="row">
+  <input ng-click="getCaseListsClick()" type="button" class="btn btn-primary" value="Get case lists" />
+</div>
+<div class="row">
+  <input ng-click="getProfileDataClick()" type="button" class="btn btn-primary" value="Get profile data" />
+</div>
+<div class="row">
+  <input ng-click="getExtendedMutationDataClick()" type="button" class="btn btn-primary" value="Get extended mutation data"
+  />
+</div>
+<div class="row">
+  <input ng-click="getClinicalDataClick()" type="button" class="btn btn-primary" value="Get clinical data" />
+</div>
+<div class="row">
+  <input ng-click="getProteinArrayInfoClick()" type="button" class="btn btn-primary" value="Get protein array info" />
+</div>
+<div class="row">
+  <input ng-click="getProteinArrayDataClick()" type="button" class="btn btn-primary" value="Get protein array data" />
 </div>
 
-<div class="row">
-  <div simple-line-chart></div>
+<div>
+  <div ng-repeat="record in bioData">{{record}}</div>
 </div>
