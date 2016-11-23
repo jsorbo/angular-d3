@@ -67,5 +67,5 @@ angular.module('angularD3App')
 
         $scope.resetClick = function () {
             $scope.bioData = [];
-        }
+        };
     });
