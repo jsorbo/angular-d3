@@ -31,37 +31,37 @@ angular.module('angularD3App')
         };
 
         $scope.getGeneticProfilesClick = function () {
-            geneticProfilesService.getData("paac_jhu_2014")
+            geneticProfilesService.getData("skcm_yale")
                 .then(onGetDataComplete, onError);
         };
 
         $scope.getCaseListsClick = function () {
-            caseListsService.getData("paac_jhu_2014")
+            caseListsService.getData("skcm_yale")
                 .then(onGetDataComplete, onError);
         };
 
         $scope.getProfileDataClick = function () {
-            profileDataService.getData("gbm_tcga_all", "gbm_tcga_mutations", "BRCA1+BRCA2+TP53")
+            profileDataService.getData("skcm_yale_all", "skcm_yale_mutations", "BRAF")//+DNAH5+LRP1B+DCC+PTPRD+DNAH8+COL22A1+COL4A5+NRAS+RELN+COL5A1
                 .then(onGetDataComplete, onError);
         };
 
         $scope.getExtendedMutationDataClick = function () {
-            extendedMutationDataService.getData("gbm_tcga_all", "gbm_tcga_mutations", "EGFR+PTEN")
+            extendedMutationDataService.getData("skcm_yale_all", "skcm_yale_mutations", "BRAF")
                 .then(onGetDataComplete, onError);
         };
 
         $scope.getClinicalDataClick = function () {
-            clinicalDataService.getData("ov_tcga_all")
+            clinicalDataService.getData("skcm_yale_all")
                 .then(onGetDataComplete, onError);
         };
 
         $scope.getProteinArrayInfoClick = function () {
-            proteinArrayInfoService.getData("paac_jhu_2014")
+            proteinArrayInfoService.getData("skcm_yale", "protein_level", "BRAF")
                 .then(onGetDataComplete, onError);
         };
 
         $scope.getProteinArrayDataClick = function () {
-            proteinArrayDataService.getData("coadread_tcga_RPPA")
+            proteinArrayDataService.getData("skcm_yale_all", "1")
                 .then(onGetDataComplete, onError);
         };
 
